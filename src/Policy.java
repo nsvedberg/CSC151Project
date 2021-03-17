@@ -35,7 +35,18 @@ public class Policy {
         holderWeightPounds = 0;
     }
 
-    /** Full constructor. */
+    /**
+     * Full constructor.
+     * 
+     * @param policyNumber the policy number
+     * @param provider the name of the provider
+     * @param firstName the policy holder's first name
+     * @param lastName the policy holder's last name
+     * @param holderAge the policy holder's age
+     * @param isSmoking whether the policy holder smokes
+     * @param holderHeightInches the policy holder's height in inches
+     * @param holderWeightPounds the policy holder's weight in pounds
+     */
     public Policy(
         int policyNumber,
         String provider,
@@ -56,52 +67,92 @@ public class Policy {
         this.holderWeightPounds = holderWeightPounds;
     }
 
-    /** Get the policy number. */
+    /**
+     * Get the policy number.
+     *
+     * @return the policy number
+     */
     public int getPolicyNumber() {
         return policyNumber;
     }
 
-    /** Get the policy provider name. */
+    /**
+     * Get the policy provider name.
+     *
+     * @return the provider name
+     */
     public String getProvider() {
         return provider;
     }
 
-    /** Get the first name of the policy holder. */
+    /**
+     * Get the first name of the policy holder.
+     *
+     * @return the first name of the policy holder
+     */
     public String getFirstName() {
         return firstName;
     }
 
-    /** Get the last name of the policy holder. */
+    /**
+     * Get the last name of the policy holder.
+     *
+     * @return the last name of the policy holder
+     */
     public String getLastName() {
         return lastName;
     }
 
-    /** Get the age of the policy holder */
+    /**
+     * Get the age of the policy holder
+     *
+     * @return the age of the policy holder
+     */
     public int getAge() {
         return holderAge;
     }
 
-    /** Whether the policy holder smokes. */
+    /**
+     * Whether the policy holder smokes.
+     *
+     * @return whether the policy holder smokes
+     */
     public boolean isSmoking() {
         return isSmoking;
     }
 
-    /** Get the height of the policy holder, in inches. */
+    /**
+     * Get the height of the policy holder, in inches.
+     *
+     * @return the height of the policy holder, in inches
+     */
     public float getHolderHeight() {
         return holderHeightInches;
     }
 
-    /** Get the weight of the policy holder, in pounds */
+    /**
+     * Get the weight of the policy holder, in pounds.
+     *
+     * @return the weight of the policy holder, in pounds
+     */
     public float getHolderWeight() {
         return holderWeightPounds;
     }
 
-    /** Calculate the policy holder's BMI. */
+    /**
+     * Calculate the policy holder's BMI.
+     *
+     * @return the policy holder's BMI
+     */
     public float bmi() {
         return (holderWeightPounds * 703) / (holderHeightInches * holderHeightInches);
     }
 
-    /** Calculate the total price of the insurance policy. */
+    /**
+     * Calculate the total price of the insurance policy.
+     *
+     * @return the total price of the insurance policy
+     */
     public float totalPrice() {
         float price = 600;
 
