@@ -67,6 +67,7 @@ public class Demo {
             System.out.printf("Policyholder’s Last Name: %s\n", policy.getLastName());
             System.out.printf("Policyholder’s Age: %d\n", policy.getAge());
             System.out.print("Policyholder’s Smoking Status: ");
+
             if (policy.isSmoking()) {
                 System.out.println("smoking");
                 totalSmokers++;
@@ -74,6 +75,7 @@ public class Demo {
                 System.out.println("non-smoking");
                 totalNonSmokers++;
             }
+
             System.out.printf("Policyholder’s Height: %.1f\n", policy.getHolderHeight());
             System.out.printf("Policyholder’s Weight: %.1f\n", policy.getHolderWeight());
             System.out.printf("Policyholder’s BMI: %.2f\n", policy.bmi());
