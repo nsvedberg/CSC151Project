@@ -1,7 +1,6 @@
 /** CSC 151 Project
  *
  * Author: Neil Svedberg
- * Date: 2021-02-05
  * Instructor: Jean Schoenheit
 */
 
