@@ -7,10 +7,15 @@ public class Policy {
     /** The name of the provider. */
     String provider;
 
+    /** The total number of policies. */
+    static int totalPolicies;
+
     /** Empty constructor. */
     public Policy() {
         policyNumber = 0;
         provider = "";
+
+        totalPolicies++;
     }
 
     /**
@@ -25,6 +30,8 @@ public class Policy {
     ) {
         this.policyNumber = policyNumber;
         this.provider = provider;
+
+        totalPolicies++;
     }
 
     /**
