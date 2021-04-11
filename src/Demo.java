@@ -39,15 +39,19 @@ public class Demo {
                 float holderWeightPounds = in.nextFloat();
                 in.nextLine();
 
-                Policy newPolicy = new Policy(
-                    policyNumber,
-                    provider,
+                PolicyHolder newHolder = new PolicyHolder(
                     firstName,
                     lastName,
                     holderAge,
                     isSmoking,
                     holderHeightInches,
                     holderWeightPounds
+                );
+
+                Policy newPolicy = new Policy(
+                    policyNumber,
+                    provider,
+                    newHolder
                 );
 
                 policies.add(newPolicy);
@@ -61,29 +65,17 @@ public class Demo {
         int totalNonSmokers = 0;
 
         for (Policy policy : policies) {
-            System.out.printf("Policy Number: %d\n", policy.getPolicyNumber());
-            System.out.printf("Provider Name: %s\n", policy.getProvider());
-            System.out.printf("Policyholder’s First Name: %s\n", policy.getFirstName());
-            System.out.printf("Policyholder’s Last Name: %s\n", policy.getLastName());
-            System.out.printf("Policyholder’s Age: %d\n", policy.getAge());
-            System.out.print("Policyholder’s Smoking Status: ");
+            System.out.println(policy);
 
-            if (policy.isSmoking()) {
-                System.out.println("smoking");
+            if (policy.getPolicyHolder().isSmoking()) {
                 totalSmokers++;
             } else {
-                System.out.println("non-smoking");
                 totalNonSmokers++;
             }
-
-            System.out.printf("Policyholder’s Height: %.1f\n", policy.getHolderHeight());
-            System.out.printf("Policyholder’s Weight: %.1f\n", policy.getHolderWeight());
-            System.out.printf("Policyholder’s BMI: %.2f\n", policy.bmi());
-            System.out.printf("Policy Price: $%.2f\n", policy.totalPrice());
-            System.out.println("");
         }
 
-        System.out.printf("There are %d smokers and %d non-smokers in total.\n",
-                totalSmokers, totalNonSmokers);
+        System.out.printf("There were %d Policy objects created.\n", Policy.getTotalPolicies());
+        System.out.printf("The number of policies with a smoker is: %d\n", totalSmokers);
+        System.out.printf("The number of policies with a non-smoker is: %d\n", totalNonSmokers);
     }
 }

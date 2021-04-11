@@ -1,19 +1,23 @@
 import java.util.Formatter;
 
 public class Policy {
+    /** The total number of policies. */
+    static int totalPolicies;
+
     /** The policy number. */
     int policyNumber;
 
     /** The name of the provider. */
     String provider;
 
-    /** The total number of policies. */
-    static int totalPolicies;
+    /** The policy holder. */
+    PolicyHolder policyHolder;
 
     /** Empty constructor. */
     public Policy() {
         policyNumber = 0;
         provider = "";
+        policyHolder = new PolicyHolder();
 
         totalPolicies++;
     }
@@ -23,15 +27,27 @@ public class Policy {
      * 
      * @param policyNumber the policy number
      * @param provider the name of the provider
+     * @param policyHolder the policy holder
      */
     public Policy(
         int policyNumber,
         String provider,
+        PolicyHolder policyHolder
     ) {
         this.policyNumber = policyNumber;
         this.provider = provider;
+        this.policyHolder = new PolicyHolder(policyHolder);
 
         totalPolicies++;
+    }
+
+    /**
+     * Get the number of total policies.
+     *
+     * @return the number of total policies
+     */
+    public static int getTotalPolicies() {
+        return totalPolicies;
     }
 
     /**
@@ -53,6 +69,15 @@ public class Policy {
     }
 
     /**
+     * Get the policy holder.
+     *
+     * @return the policy holder
+     */
+    public PolicyHolder getPolicyHolder() {
+        return policyHolder;
+    }
+
+    /**
      * Calculate the total price of the insurance policy.
      *
      * @return the total price of the insurance policy
@@ -60,16 +85,16 @@ public class Policy {
     public float totalPrice() {
         float price = 600;
 
-        if (holderAge > 50) {
+        if (policyHolder.getAge() > 50) {
             price += 75;
         }
 
-        if (isSmoking) {
+        if (policyHolder.isSmoking()) {
             price += 100;
         }
 
-        if (bmi() > 35) {
-            price += (bmi() - 35) * 20;
+        if (policyHolder.bmi() > 35) {
+            price += (policyHolder.bmi() - 35) * 20;
         }
 
         return price;

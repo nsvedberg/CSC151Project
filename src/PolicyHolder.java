@@ -55,6 +55,19 @@ public class PolicyHolder {
         this.weightPounds = weightPounds;
     }
 
+    /** Copy constructor.
+     *
+     * @param policyHolder the object to copy
+     */
+    public PolicyHolder(PolicyHolder policyHolder) {
+        this.firstName = policyHolder.firstName;
+        this.lastName = policyHolder.lastName;
+        this.age = policyHolder.age;
+        this.isSmoking = policyHolder.isSmoking;
+        this.heightInches = policyHolder.heightInches;
+        this.weightPounds = policyHolder.weightPounds;
+    }
+
     /**
      * Get the first name of the policy holder.
      *
@@ -122,19 +135,21 @@ public class PolicyHolder {
         StringBuilder builder = new StringBuilder();
         Formatter fmt = new Formatter(builder);
 
-        fmt.format("Policyholder’s First Name: %s\n", firstName);
-        fmt.format("Policyholder’s Last Name: %s\n", lastName);
-        fmt.format("Policyholder’s Age: %d\n", age);
-        fmt.format("Policyholder’s Smoking Status: ");
+        fmt.format("Policyholder's First Name: %s\n", firstName);
+        fmt.format("Policyholder's Last Name: %s\n", lastName);
+        fmt.format("Policyholder's Age: %d\n", age);
+        fmt.format("Policyholder's Smoking Status (Y/N): ");
 
         if (isSmoking) {
-            fmt.format("smoking\n");
+            fmt.format("smoker\n");
         } else {
-            fmt.format("non-smoking\n");
+            fmt.format("non-smoker\n");
         }
 
-        fmt.format("Policyholder’s Height: %.1f\n", holderHeight);
-        fmt.format("Policyholder’s Weight: %.1f\n", holderWeight);
-        fmt.format("Policyholder’s BMI: %.2f\n", bmi());
+        fmt.format("Policyholder's Height: %.1f inches\n", heightInches);
+        fmt.format("Policyholder's Weight: %.1f pounds\n", weightPounds);
+        fmt.format("Policyholder's BMI: %.2f\n", bmi());
+
+        return builder.toString();
     }
 }
