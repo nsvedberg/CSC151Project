@@ -1,3 +1,5 @@
+import java.util.Formatter;
+
 public class Policy {
     /** The policy number. */
     int policyNumber;
@@ -64,5 +66,17 @@ public class Policy {
         }
 
         return price;
+    }
+
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Formatter fmt = new Formatter(builder);
+
+        fmt.format("Policy Number: %d\n", policyNumber);
+        fmt.format("Provider Name: %s\n", provider);
+        fmt.format("%s", policyHolder);
+        fmt.format("Policy Price: $%.2f\n", totalPrice());
+
+        return builder.toString();
     }
 }
