@@ -1,3 +1,5 @@
+import java.util.Formatter;
+
 public class PolicyHolder {
     /** The first name of the policy holder. */
     String firstName;
@@ -114,5 +116,25 @@ public class PolicyHolder {
      */
     public float bmi() {
         return (weightPounds * 703) / (heightInches * heightInches);
+    }
+
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Formatter fmt = new Formatter(builder);
+
+        fmt.format("Policyholder’s First Name: %s\n", firstName);
+        fmt.format("Policyholder’s Last Name: %s\n", lastName);
+        fmt.format("Policyholder’s Age: %d\n", age);
+        fmt.format("Policyholder’s Smoking Status: ");
+
+        if (isSmoking) {
+            fmt.format("smoking\n");
+        } else {
+            fmt.format("non-smoking\n");
+        }
+
+        fmt.format("Policyholder’s Height: %.1f\n", holderHeight);
+        fmt.format("Policyholder’s Weight: %.1f\n", holderWeight);
+        fmt.format("Policyholder’s BMI: %.2f\n", bmi());
     }
 }
